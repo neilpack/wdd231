@@ -11,12 +11,40 @@ function setParkIntro(data) {
 
 function setParkInfoLinks(data) {
   const infoEl = document.querySelector(".info");
-  // we have multiple links to build...so we map to transform the array of objects into an array of HTML strings.
+  const resultCount = document.querySelector("#result-count");
+
+  // Clear the old results before rendering new ones
+  infoEl.innerHTML = "";
+
+  // Update the result count
+  resultCount.textContent = `Showing ${data.length} result(s)`;
+
+  // Show a message if nothing matches
+  if (data.length === 0) {
+    infoEl.innerHTML = "<p>No park information matches your search.</p>";
+    return;
+  }
+
+  // Render the matching cards
   const html = data.map(mediaCardTemplate);
-  // join the array of strings into one string and insert it into the section
   infoEl.insertAdjacentHTML("afterbegin", html.join(""));
+}
+
+function setupSearch() {
+  const searchInput = document.querySelector("#info-search");
+
+  searchInput.addEventListener("input", function () {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    const filteredLinks = parkInfoLinks.filter(function (info) {
+      return info.name.toLowerCase().includes(searchTerm);
+    });
+
+    setParkInfoLinks(filteredLinks);
+  });
 }
 
 setHeaderFooter(parkData);
 setParkIntro(parkData);
 setParkInfoLinks(parkInfoLinks);
+setupSearch();
