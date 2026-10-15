@@ -93,6 +93,80 @@ main {
 
 
 /* --------------------
+   WEATHER
+-------------------- */
+
+.weather-section {
+  margin-bottom: var(--space-large);
+  padding: var(--space-medium);
+  background-color: var(--color-accent);
+  border-radius: var(--border-radius);
+}
+
+.weather-heading h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-small);
+}
+
+.weather-heading p {
+  margin-top: 0;
+}
+
+.weather-status {
+  padding: var(--space-medium) 0;
+  color: var(--color-muted);
+}
+
+.weather-status.is-error {
+  color: #8a1c1c;
+  font-weight: bold;
+}
+
+.weather-card {
+  display: grid;
+  gap: var(--space-medium);
+  grid-template-columns: 1fr;
+  padding: var(--space-medium);
+  background-color: var(--color-card);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 12%);
+}
+
+.weather-card h3,
+.weather-card p {
+  margin: 0;
+}
+
+.weather-temperature {
+  color: var(--color-primary-dark);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.weather-details {
+  display: grid;
+  gap: var(--space-small);
+  margin: 0;
+}
+
+.weather-details div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-medium);
+  border-bottom: 1px solid var(--color-accent);
+}
+
+.weather-details dt {
+  font-weight: bold;
+}
+
+.weather-details dd {
+  margin: 0;
+  text-align: right;
+}
+
+
+/* --------------------
    HIKE GRID
    Mobile first: one column
 -------------------- */
@@ -237,6 +311,11 @@ footer p {
 -------------------- */
 
 @media (min-width: 600px) {
+
+  .weather-card {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
 
   .hike-grid {
     grid-template-columns: repeat(2, 1fr);

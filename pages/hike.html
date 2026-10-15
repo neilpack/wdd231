@@ -20,7 +20,7 @@
   <header class="site-header">
     <div class="header-content">
       <h1>Neil Land Hiking Guide</h1>
-      <p>Discover trails across the wild lands of Neil Land.</p>
+      <p>Discover hiking trails across Neil Land.</p>
     </div>
   </header>
 
@@ -28,9 +28,27 @@
     <section class="intro" aria-labelledby="hikes-heading">
       <h2 id="hikes-heading">Explore the Trails</h2>
       <p>
-        Find your next adventure. From peaceful forest walks
-        to difficult mountain climbs, Neil Land has a trail for everyone.
+        Straight up go where you want to go. Do what you want to do. 
+        There are no limits to your imagination. 
       </p>
+    </section>
+
+    <section class="weather-section" aria-labelledby="weather-heading">
+      <div class="weather-heading">
+        <h2 id="weather-heading">Neil Land Trail Weather</h2>
+        <p>Check current conditions before heading out on the trail.</p>
+      </div>
+
+      <div
+        id="weather-status"
+        class="weather-status"
+        role="status"
+        aria-live="polite"
+      >
+        Loading current weather...
+      </div>
+
+      <div id="weather-card" class="weather-card" hidden></div>
     </section>
 
     <section
