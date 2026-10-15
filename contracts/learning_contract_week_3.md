@@ -35,7 +35,7 @@ I will use these resources:
 
 I will practice by:
 
-I will improve my web app so users can announce games they are excited to play, currently playing, or have finished. I will build a mobile-first layout using Flexbox or Grid, add responsive breakpoints, define shared colors and spacing with CSS custom properties, and style announcement cards with readable typography and clear visual hierarchy. I will test long titles, long descriptions, missing or differently sized images, and several viewport sizes. I will also check contrast, zoom, reflow, text enlargement, motion, and touch-target sizing, then document at least one problem from diagnosis through its fix.
+I will improve my web app so users look at fictional hikes. I will build a mobile-first layout using Flexbox or Grid, add responsive breakpoints, define shared colors and spacing with CSS custom properties, and style announcement cards with readable typography and clear visual hierarchy. I will test long titles, long descriptions, missing or differently sized images, and several viewport sizes. I will also check contrast, zoom, reflow, text enlargement, motion, and touch-target sizing, then document at least one problem from diagnosis through its fix.
 
 My first milestone, due October 4, 2026, is:
 
