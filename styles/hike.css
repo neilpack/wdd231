@@ -10,6 +10,8 @@
   --color-text: #202620;
   --color-muted: #536056;
   --color-accent: #d8e5d5;
+  --color-favorite: #b85d19;
+  --color-favorite-bg: #fff8f0;
 
   --space-small: 0.5rem;
   --space-medium: 1rem;
@@ -69,6 +71,37 @@ img {
 
 .site-header p {
   margin-bottom: 0;
+}
+
+.menu-toggle {
+  margin-top: var(--space-medium);
+  padding: 0.6rem 1rem;
+  min-height: 44px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.site-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-medium);
+  margin-top: var(--space-medium);
+}
+
+.site-navigation a {
+  color: white;
+  font-weight: bold;
+}
+
+.menu-toggle:focus-visible,
+.site-navigation a:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
 }
 
 
@@ -167,6 +200,62 @@ main {
 
 
 /* --------------------
+   PREFERENCES & CONTROLS
+-------------------- */
+
+.controls-section {
+  margin-bottom: var(--space-large);
+  padding: var(--space-medium);
+  background-color: var(--color-card);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 10%);
+}
+
+.controls-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-medium);
+}
+
+.controls-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-small);
+}
+
+.filter-group label {
+  font-weight: bold;
+}
+
+.difficulty-select {
+  padding: 0.55rem 0.75rem;
+  min-height: 44px;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  background-color: white;
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.preference-status {
+  margin: var(--space-medium) 0 0;
+  padding-top: var(--space-small);
+  border-top: 1px solid var(--color-accent);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+
+/* --------------------
    HIKE GRID
    Mobile first: one column
 -------------------- */
@@ -178,6 +267,68 @@ main {
   padding-bottom: var(--space-large);
 }
 
+.empty-state {
+  grid-column: 1 / -1;
+  padding: var(--space-large);
+  background-color: var(--color-card);
+  border-radius: var(--border-radius);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+
+/* --------------------
+   TRAIL DETAIL PAGE
+-------------------- */
+
+.trail-detail {
+  margin: var(--space-large) 0;
+  padding: var(--space-large);
+  background-color: var(--color-card);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 15%);
+}
+
+.trail-detail.is-error {
+  border-left: 5px solid #8a1c1c;
+}
+
+.trail-detail h2 {
+  margin-top: 0;
+  color: var(--color-primary-dark);
+}
+
+.trail-detail-content {
+  display: grid;
+  gap: var(--space-large);
+}
+
+.trail-detail-image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.trail-detail-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--space-small) var(--space-medium);
+  margin: var(--space-large) 0;
+}
+
+.trail-detail-list dt {
+  font-weight: bold;
+}
+
+.trail-detail-list dd {
+  margin: 0;
+}
+
+.back-link {
+  text-decoration: none;
+}
+
 
 /* --------------------
    HIKE CARD
@@ -186,12 +337,19 @@ main {
 .hike-card {
   background-color: var(--color-card);
   border-radius: var(--border-radius);
+  border: 2px solid transparent;
   overflow: hidden;
 
   display: flex;
   flex-direction: column;
 
   box-shadow: 0 2px 6px rgb(0 0 0 / 15%);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.hike-card.is-favorite {
+  border-color: var(--color-favorite);
+  background-color: var(--color-favorite-bg);
 }
 
 .hike-image {
@@ -228,13 +386,30 @@ main {
   flex-grow: 1;
 }
 
-.hike-content h3 {
-  margin-top: 0;
+.hike-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-small);
   margin-bottom: var(--space-small);
+}
+
+.hike-content h3 {
+  margin: 0;
   font-size: 1.3rem;
 
   /* Prevents very long words from breaking the page */
   overflow-wrap: anywhere;
+}
+
+.favorite-badge {
+  background-color: var(--color-favorite);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 .hike-details {
@@ -257,34 +432,73 @@ main {
 
 
 /* --------------------
-   BUTTON
+   BUTTONS
 -------------------- */
 
-.hike-button {
-  display: inline-block;
-  align-self: flex-start;
-
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-small);
   margin-top: var(--space-medium);
-  padding: 0.75rem 1rem;
+}
 
+.hike-button,
+.favorite-button,
+.secondary-button {
+  display: inline-block;
+  padding: 0.65rem 1rem;
   min-height: 44px;
-
-  border: 2px solid var(--color-primary);
   border-radius: 5px;
-
-  background-color: var(--color-primary);
-  color: white;
-
   font: inherit;
   font-weight: bold;
   cursor: pointer;
+}
+
+.hike-button {
+  text-decoration: none;
+}
+
+.hike-button {
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
 }
 
 .hike-button:hover {
   background-color: var(--color-primary-dark);
 }
 
-.hike-button:focus-visible {
+.favorite-button {
+  border: 2px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.favorite-button:hover {
+  background-color: var(--color-accent);
+}
+
+.favorite-button.is-active {
+  border-color: var(--color-favorite);
+  background-color: var(--color-favorite);
+  color: white;
+}
+
+.secondary-button {
+  border: 2px solid var(--color-muted);
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.secondary-button:hover {
+  background-color: var(--color-accent);
+}
+
+.hike-button:focus-visible,
+.favorite-button:focus-visible,
+.secondary-button:focus-visible,
+.difficulty-select:focus-visible,
+.back-link:focus-visible {
   outline: 3px solid #000000;
   outline-offset: 3px;
 }
@@ -311,6 +525,11 @@ footer p {
 -------------------- */
 
 @media (min-width: 600px) {
+
+  .trail-detail-content {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
 
   .weather-card {
     grid-template-columns: 1fr 1fr;

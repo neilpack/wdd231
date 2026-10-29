@@ -21,6 +21,18 @@
     <div class="header-content">
       <h1>Neil Land Hiking Guide</h1>
       <p>Discover hiking trails across Neil Land.</p>
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-navigation"
+      >
+        Menu
+      </button>
+      <nav id="site-navigation" class="site-navigation" aria-label="Primary navigation" hidden>
+        <a href="hike.html">All Trails</a>
+      </nav>
     </div>
   </header>
 
@@ -49,6 +61,32 @@
       </div>
 
       <div id="weather-card" class="weather-card" hidden></div>
+    </section>
+
+    <section class="controls-section" aria-labelledby="controls-heading">
+      <div class="controls-header">
+        <h2 id="controls-heading">Trail Preferences</h2>
+        <div class="filter-group">
+          <label for="difficulty-filter">Preferred Difficulty:</label>
+          <select id="difficulty-filter" class="difficulty-select">
+            <option value="all">All Difficulties</option>
+            <option value="easy">Easy</option>
+            <option value="moderate">Moderate</option>
+            <option value="hard">Hard</option>
+          </select>
+
+          <button id="reset-preferences" class="secondary-button" type="button">
+            Reset Preferences
+          </button>
+        </div>
+      </div>
+
+      <p
+        id="preference-status"
+        class="preference-status"
+        role="status"
+        aria-live="polite"
+      ></p>
     </section>
 
     <section

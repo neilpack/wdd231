@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trail details from the Neil Land Hiking Guide.">
+  <title>Trail Details | Neil Land Hiking Guide</title>
+  <link rel="stylesheet" href="../styles/hike.css">
+  <script src="../scripts/hike.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <h1>Neil Land Hiking Guide</h1>
+      <p>Discover hiking trails across Neil Land.</p>
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-navigation"
+      >
+        Menu
+      </button>
+      <nav id="site-navigation" class="site-navigation" aria-label="Primary navigation" hidden>
+        <a href="hike.html">All Trails</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="trail-detail" class="trail-detail" aria-live="polite" aria-labelledby="trail-detail-heading">
+      <h2 id="trail-detail-heading">Trail details</h2>
+      <p>Loading trail details...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Neil Land Hiking Guide</p>
+    <p>All locations and hikes are fictional.</p>
+  </footer>
+</body>
+</html>
