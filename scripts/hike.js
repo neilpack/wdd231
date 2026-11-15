@@ -52,13 +52,13 @@ const hikes = [
   // long description, and missing image for testing.
   {
     id: "placeholder-trail",
-    name: "Placeholder",
+    name: "Placeholder Placeholder descriptionPlaceholder description Placeholder description Placeholder description Placeholder description Placeholder descriptionPlaceholder description",
     location: "Placeholder",
     difficulty: "Unknown",
     distance: "X miles",
     image: "",
     description:
-      "Placeholder description."
+      "Placeholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder descriptionPlaceholder description"
   }
 ];
 
@@ -417,6 +417,14 @@ async function loadWeather() {
 function createHikeCard(hike) {
   const isFavorite = hikingGuideState.favoriteTrailId === hike.id;
 
+  const markup = `<article class="hike-card">
+  <img class="hike-image"src="https://picsum.photos/seed/mountneil/600/400" alt="View along the Mount Neil Summit" loading="lazy">
+  <div class="hike-content">
+  <div class="hike-title-row">
+  <h3>Mount Neil Summit</h3></div><div class="hike-details">
+  <span>Hard</span><span>8.7 miles</span></div><p><strong>Location: </strong>Neil Mountains</p>
+  <p class="hike-description">A challenging climb to the highest point in Neil Land with wide views of the surrounding valleys.</p><div class="card-actions"><a class="hike-button" href="trail.html?id=mount-neil-summit">Trail Details</a><button class="favorite-button" type="button" aria-pressed="false">☆ Mark as Favorite</button></div></div></article>`
+
   const article = document.createElement("article");
   article.classList.add("hike-card");
   if (isFavorite) {
@@ -551,6 +559,7 @@ function renderHikes() {
     filteredHikes.forEach((hike) => {
       const hikeCard = createHikeCard(hike);
       hikeList.appendChild(hikeCard);
+      // hikeList.insertAdjacentHTML("beforeend", hikeCard);
     });
   }
 

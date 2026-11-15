@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO: a unique, descriptive title (about 50-60 characters max) -->
+  <title>Week 7: SEO and Accessibility Review | WDD 231</title>
+
+  <!-- SEO: a meta description that summarizes the page (about 50-160 characters) -->
+  <meta
+    name="description"
+    content="Minimal WDD 231 week 7 demo of page metadata, heading order, link text, alt text, contrast, visible focus, reflow, and keyboard access."
+  >
+
+  <link rel="stylesheet" href="../styles/week7.css">
+  <script src="../scripts/week7.js" defer></script>
+</head>
+
+<body>
+  <!-- Keyboard: first focusable element lets keyboard users bypass the header -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <h1>Week 7: SEO and Accessibility Review</h1>
+        <p class="tagline">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+
+      <!-- Keyboard: a real <button> gets Enter/Space support for free -->
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        Menu
+      </button>
+    </div>
+
+    <!-- Meaningful link text: each link names the section it goes to -->
+    <nav id="site-nav" class="site-nav" aria-label="Page sections">
+      <ul class="wrap nav-list">
+        <li><a href="#metadata">Metadata</a></li>
+        <li><a href="#structure">Headings and links</a></li>
+        <li><a href="#images">Images</a></li>
+        <li><a href="#contrast">Contrast and focus</a></li>
+        <li><a href="#keyboard">Keyboard</a></li>
+        <li><a href="#reflow">Reflow and zoom</a></li>
+        <li><a href="#audit">Audit checklist</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+
+    <!-- ========== Slice 1: Page titles and meta descriptions ========== -->
+    <section id="metadata" aria-labelledby="metadata-heading">
+      <h2 id="metadata-heading">Page Title and Meta Description</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+      <dl class="meta-list">
+        <dt>Current title</dt>
+        <dd id="meta-title">Requires JavaScript to display.</dd>
+
+        <dt>Current meta description</dt>
+        <dd id="meta-description">Requires JavaScript to display.</dd>
+      </dl>
+    </section>
+
+    <!-- ========== Slice 2: Heading hierarchy and meaningful link text ========== -->
+    <section id="structure" aria-labelledby="structure-heading">
+      <h2 id="structure-heading">Headings and Link Text</h2>
+
+      <h3>Heading Hierarchy</h3>
+      <p>
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat.
+      </p>
+      <ol class="outline">
+        <li>h1: Lorem ipsum
+          <ol>
+            <li>h2: Dolor sit amet
+              <ol>
+                <li>h3: Consectetur</li>
+                <li>h3: Adipiscing</li>
+              </ol>
+            </li>
+            <li>h2: Sed do eiusmod</li>
+          </ol>
+        </li>
+      </ol>
+
+      <h3>Link Text</h3>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur.
+      </p>
+      <div class="compare">
+        <div class="compare-item">
+          <h4>Vague</h4>
+          <p><code>&lt;a href="#"&gt;Click here&lt;/a&gt;</code></p>
+        </div>
+        <div class="compare-item">
+          <h4>Descriptive</h4>
+          <p><a href="#audit">Run the page audit checklist</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Slice 3: Image alternative text and content structure ========== -->
+    <section id="images" aria-labelledby="images-heading">
+      <h2 id="images-heading">Images and Alternative Text</h2>
+
+      <h3>Informative Image</h3>
+      <figure>
+        <!-- Informative: alt describes what the image communicates -->
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23e8e8e8'/%3E%3Crect x='60' y='110' width='40' height='50' fill='%23666'/%3E%3Crect x='140' y='80' width='40' height='80' fill='%23666'/%3E%3Crect x='220' y='40' width='40' height='120' fill='%23666'/%3E%3C/svg%3E"
+          alt="Placeholder bar chart with three gray bars that increase in height from left to right"
+          width="320"
+          height="180"
+        >
+        <figcaption>Figure 1. Lorem ipsum dolor sit amet, consectetur adipiscing.</figcaption>
+      </figure>
+
+      <h3>Decorative Image</h3>
+      <p>
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+        officia deserunt mollit anim id est laborum.
+      </p>
+      <!-- Decorative: empty alt tells screen readers to skip it -->
+      <img
+        class="divider"
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 12'%3E%3Cpath d='M0 6 Q20 0 40 6 T80 6 T120 6 T160 6 T200 6 T240 6 T280 6 T320 6' fill='none' stroke='%23999' stroke-width='2'/%3E%3C/svg%3E"
+        alt=""
+        width="320"
+        height="12"
+      >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
+        odio praesent libero.
+      </p>
+    </section>
+
+    <!-- ========== Slice 4 & 5: Color contrast and visible focus ========== -->
+    <section id="contrast" aria-labelledby="contrast-heading">
+      <h2 id="contrast-heading">Color Contrast and Visible Focus</h2>
+      <p>
+        Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum
+        imperdiet. Press <kbd>Tab</kbd> to see the focus outline on each control.
+      </p>
+
+      <h3>Contrast Checker</h3>
+      <form id="contrast-form" class="contrast-form">
+        <div class="field">
+          <label for="fg-color">Text color</label>
+          <input id="fg-color" name="fg" type="color" value="#1a1a1a">
+        </div>
+        <div class="field">
+          <label for="bg-color">Background color</label>
+          <input id="bg-color" name="bg" type="color" value="#ffffff">
+        </div>
+      </form>
+
+      <!-- data-audit-ignore keeps the user-chosen preview colors out of the page audit -->
+      <p id="contrast-preview" class="contrast-preview" data-audit-ignore>
+        Lorem ipsum dolor sit amet preview text.
+      </p>
+
+      <p>
+        Contrast ratio:
+        <output id="contrast-ratio" for="fg-color bg-color">--</output>
+      </p>
+      <ul id="contrast-results" class="result-list"></ul>
+    </section>
+
+    <!-- ========== Slice 7: Keyboard-only navigation and interaction ========== -->
+    <section id="keyboard" aria-labelledby="keyboard-heading">
+      <h2 id="keyboard-heading">Keyboard Navigation</h2>
+
+      <h3>Filters</h3>
+      <form id="filter-form">
+        <fieldset>
+          <legend>Show placeholder items in these categories</legend>
+          <div class="check-row">
+            <label><input type="checkbox" name="category" value="alpha" checked> Alpha</label>
+            <label><input type="checkbox" name="category" value="beta" checked> Beta</label>
+            <label><input type="checkbox" name="category" value="gamma" checked> Gamma</label>
+          </div>
+        </fieldset>
+        <button id="filter-reset" type="button">Reset filters</button>
+      </form>
+
+      <!-- role="status" announces changes politely to screen readers -->
+      <p id="filter-status" class="status" role="status">Showing 6 of 6 items.</p>
+
+      <ul id="filter-items" class="card-list">
+        <li class="card" data-category="alpha"><h4>Lorem item one</h4><p>Alpha. Lorem ipsum dolor sit amet.</p></li>
+        <li class="card" data-category="beta"><h4>Lorem item two</h4><p>Beta. Consectetur adipiscing elit.</p></li>
+        <li class="card" data-category="gamma"><h4>Lorem item three</h4><p>Gamma. Sed do eiusmod tempor.</p></li>
+        <li class="card" data-category="alpha"><h4>Lorem item four</h4><p>Alpha. Ut enim ad minim veniam.</p></li>
+        <li class="card" data-category="beta"><h4>Lorem item five</h4><p>Beta. Quis nostrud exercitation.</p></li>
+        <li class="card" data-category="gamma"><h4>Lorem item six</h4><p>Gamma. Duis aute irure dolor.</p></li>
+      </ul>
+
+      <h3>Focus Order Log</h3>
+      <p>
+        Turn on recording, then press <kbd>Tab</kbd> and <kbd>Shift</kbd> + <kbd>Tab</kbd>
+        through the page. Each focused element is listed in order.
+      </p>
+      <div class="button-row">
+        <button id="focus-record" type="button" aria-pressed="false">Record focus order</button>
+        <button id="focus-clear" type="button">Clear log</button>
+      </div>
+      <ol id="focus-log" class="focus-log"></ol>
+    </section>
+
+    <!-- ========== Slice 6: Reflow and zoom behavior ========== -->
+    <section id="reflow" aria-labelledby="reflow-heading">
+      <h2 id="reflow-heading">Reflow and Zoom</h2>
+      <p>
+        Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque
+        adipiscing diam. Zoom to 400% or narrow the window to 320 pixels and
+        the layout reflows into one column.
+      </p>
+
+      <dl class="meta-list">
+        <dt>Viewport width</dt>
+        <dd id="viewport-width">Requires JavaScript to display.</dd>
+
+        <dt>Horizontal page scrolling</dt>
+        <dd id="horizontal-scroll">Requires JavaScript to display.</dd>
+      </dl>
+
+      <div class="grid">
+        <article class="card"><h3>Lorem</h3><p>Ipsum dolor sit amet, consectetur adipiscing elit.</p></article>
+        <article class="card"><h3>Dolor</h3><p>Sed do eiusmod tempor incididunt ut labore.</p></article>
+        <article class="card"><h3>Amet</h3><p>Ut enim ad minim veniam, quis nostrud.</p></article>
+      </div>
+    </section>
+
+    <!-- ========== Evidence: audit checklist ========== -->
+    <section id="audit" aria-labelledby="audit-heading">
+      <h2 id="audit-heading">Page Audit Checklist</h2>
+
+      <h3>Automated Checks</h3>
+      <p>
+        Curabitur sodales ligula in libero. Run the audit to check this page's
+        metadata, headings, links, images, labels, and contrast.
+      </p>
+      <button id="run-audit" type="button">Run audit</button>
+      <p id="audit-status" class="status" role="status"></p>
+
+      <!-- Scrollable region is focusable so keyboard users can scroll the table -->
+      <div class="table-wrap" role="region" aria-labelledby="audit-caption" tabindex="0">
+        <table class="audit-table">
+          <caption id="audit-caption">Automated audit results</caption>
+          <thead>
+            <tr>
+              <th scope="col">Check</th>
+              <th scope="col">Result</th>
+              <th scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody id="audit-body">
+            <tr>
+              <td colspan="3">The audit has not been run yet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Manual Checks</h3>
+      <form id="manual-form">
+        <fieldset>
+          <legend>Checks that need a person to test</legend>
+          <ul class="manual-list">
+            <li><label><input type="checkbox"> Every control can be reached with <kbd>Tab</kbd> and there is no keyboard trap</label></li>
+            <li><label><input type="checkbox"> A focus indicator is visible on every focused element</label></li>
+            <li><label><input type="checkbox"> The menu button works with <kbd>Enter</kbd>, <kbd>Space</kbd>, and <kbd>Escape</kbd></label></li>
+            <li><label><input type="checkbox"> Content is readable at 200% zoom with no loss of content</label></li>
+            <li><label><input type="checkbox"> No horizontal page scrolling at 320 CSS pixels wide</label></li>
+            <li><label><input type="checkbox"> Status messages are announced by a screen reader</label></li>
+          </ul>
+        </fieldset>
+      </form>
+      <p id="manual-status" class="status" role="status">0 of 6 manual checks complete.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 Lorem Ipsum. Dolor sit amet.</p>
+    </div>
+  </footer>
+</body>
+</html>

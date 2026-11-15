@@ -1,0 +1,433 @@
+/* =========================================================
+   Week 7: SEO and Accessibility Review
+   Minimal grayscale styles. Every text/background pair below
+   meets WCAG AA (4.5:1 for text, 3:1 for UI boundaries).
+   ========================================================= */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f4f4f4;
+  --text: #1a1a1a;       /* 17.4:1 on --bg */
+  --muted: #4d4d4d;      /* 8.4:1 on --bg  */
+  --border: #8a8a8a;     /* 3.4:1 on --bg  (non-text contrast) */
+  --border-light: #d6d6d6;
+  --link: #1a4fa0;       /* 7.8:1 on --bg  */
+  --focus: #1a4fa0;
+  --pass: #1d6b2f;       /* 6.5:1 on --bg  */
+  --fail: #a32020;       /* 7.5:1 on --bg  */
+  --radius: 4px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reflow & zoom: rem-based sizes respect the user's font settings */
+html {
+  font-size: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Reflow: fluid width, no fixed pixel widths anywhere */
+.wrap {
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  margin-block: 1.5em 0.5em;
+}
+
+h1 { font-size: 1.75rem; margin-top: 0; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1rem; margin-top: 0; }
+
+p {
+  max-width: 70ch;
+}
+
+a {
+  color: var(--link);
+  /* Use of color: underline so links are not identified by color alone */
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+code,
+kbd {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+kbd {
+  padding: 0.05em 0.35em;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+/* ---------- Visible focus ---------- */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--text);
+  color: var(--bg);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Header and navigation ---------- */
+.site-header {
+  padding-top: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tagline {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+/* Menu button only matters when JavaScript is running */
+.menu-toggle {
+  display: none;
+}
+
+.js .menu-toggle {
+  display: inline-block;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-block: 1rem;
+  list-style: none;
+}
+
+/* Target size: padding keeps links at least 24px tall */
+.nav-list a {
+  display: inline-block;
+  padding: 0.25rem 0;
+}
+
+/* Hidden nav links are display:none, so they are removed from tab order */
+.js .site-nav:not(.is-open) {
+  display: none;
+}
+
+@media (min-width: 40em) {
+  .js .menu-toggle {
+    display: none;
+  }
+
+  .js .site-nav:not(.is-open) {
+    display: block;
+  }
+}
+
+/* ---------- Sections ---------- */
+main section {
+  padding-block: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+main section:last-child {
+  border-bottom: 0;
+}
+
+/* Offset in-page jumps a little so headings are not flush with the top */
+main section[id] {
+  scroll-margin-top: 1rem;
+}
+
+.meta-list {
+  display: grid;
+  gap: 0.25rem 1rem;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+
+.meta-list dt {
+  font-weight: 700;
+}
+
+.meta-list dd {
+  margin: 0 0 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.outline,
+.outline ol {
+  padding-left: 1.25rem;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+}
+
+.compare-item,
+.card {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* ---------- Images ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.divider {
+  display: block;
+  width: 100%;
+}
+
+/* ---------- Form controls ---------- */
+button {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--text);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--surface);
+}
+
+button[aria-pressed="true"] {
+  background: var(--text);
+  color: var(--bg);
+}
+
+fieldset {
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+legend {
+  padding-inline: 0.25rem;
+  font-weight: 700;
+}
+
+input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0 0.4rem 0 0;
+  vertical-align: middle;
+  accent-color: var(--text);
+}
+
+.check-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.status {
+  font-weight: 700;
+}
+
+/* ---------- Contrast checker ---------- */
+.contrast-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="color"] {
+  width: 3rem;
+  height: 2.25rem;
+  padding: 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.contrast-preview {
+  max-width: none;
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+}
+
+.result-list {
+  padding-left: 1.25rem;
+}
+
+/* Use of color: results say "Pass" or "Fail" in text, color only reinforces it */
+.pass {
+  color: var(--pass);
+  font-weight: 700;
+}
+
+.fail {
+  color: var(--fail);
+  font-weight: 700;
+}
+
+/* ---------- Keyboard section ---------- */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.card p {
+  margin: 0;
+}
+
+.focus-log {
+  min-height: 2rem;
+  padding-left: 1.75rem;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9rem;
+}
+
+/* ---------- Reflow section ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.grid .card h3 {
+  margin-top: 0;
+}
+
+/* ---------- Audit ---------- */
+#audit-status {
+  min-height: 1.6em;
+}
+
+/* Data tables are a WCAG reflow exception, so they may scroll inside a region */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.audit-table {
+  width: 100%;
+  min-width: 32rem;
+  border-collapse: collapse;
+}
+
+.audit-table caption {
+  padding: 0.75rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.audit-table th,
+.audit-table td {
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid var(--border-light);
+  text-align: left;
+  vertical-align: top;
+}
+
+.audit-table thead th {
+  background: var(--surface);
+}
+
+.manual-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.manual-list li + li {
+  margin-top: 0.5rem;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding-block: 1rem;
+  border-top: 1px solid var(--border-light);
+  color: var(--muted);
+}
+
+.site-footer p {
+  margin: 0;
+}
