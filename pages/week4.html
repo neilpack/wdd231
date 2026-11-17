@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 4: Data, Templates, and Modules | WDD 231</title>
+  <link rel="stylesheet" href="../styles/week4.css">
+  <!-- type="module" lets this file use import/export -->
+  <script type="module" src="../scripts/week4.js"></script>
+</head>
+
+<body>
+  <main>
+    <h1>Week 4: Data, Templates, and Modules</h1>
+
+    <p>
+      So all the cards here are pretty much placeholders. JavaScript fills them in from an array of objects.
+    </p>
+
+    <p>okay so this time I did three different javascript pages</p>
+    <ul>
+      <li><code>scripts/week4/hikes.mjs</code> - the array of hike objects</li>
+      <li><code>scripts/week4/templates.mjs</code> - turns one hike into HTML</li>
+      <li><code>scripts/week4.js</code> - imports the other two, filters, and puts the HTML on the page</li>
+    </ul>
+
+    <section>
+      <h2>All hikes</h2>
+      <!-- Empty on purpose. week4.js fills this in. -->
+      <ul id="all-hikes" class="hike-list"></ul>
+    </section>
+
+    <section>
+      <h2>Short hikes (under 3 miles)</h2>
+      <!-- Same template, different data -->
+      <ul id="short-hikes" class="hike-list"></ul>
+    </section>
+  </main>
+</body>
+</html>

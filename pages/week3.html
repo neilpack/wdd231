@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3: JavaScript Events | WDD 231</title>
+  <link rel="stylesheet" href="../styles/week3.css">
+  <!-- defer = run the script after the HTML is loaded, so the elements exist -->
+  <script src="../scripts/week3.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <h1>I can explain javascript elements and events now lol</h1>
+
+    <p>
+      An <strong>event</strong> is something that happens on the page, like a
+      click or a keypress. JavaScript can <strong>listen</strong> for an event
+      and run a function (called an <strong>event handler</strong>) when it happens.
+    </p>
+
+    <p>Every example below uses the same pattern:</p>
+    <pre><code>element.addEventListener("eventName", functionToRun);</code></pre>
+
+
+    <section>
+      <h2>1. click</h2>
+      <p>Fires when the user clicks a button (or presses Enter/Space on it).</p>
+
+      <button id="click-button" type="button">Click me</button>
+      <p>Button clicked: <span id="click-output">0</span> times</p>
+    </section>
+
+
+    <section>
+      <h2>2. input</h2>
+      <p>Fires <em>every time</em> the value of a text box changes, on each keystroke.</p>
+
+      <label for="input-box">Type your name:</label>
+      <input id="input-box" type="text">
+      <p>Hello, <span id="input-output">...</span></p>
+    </section>
+
+
+    <section>
+      <h2>3. change</h2>
+      <p>
+        Fires once, after the user <em>finishes</em> picking a new value, like
+        choosing from a dropdown or checking a box.
+      </p>
+
+      <label for="change-select">Pick a color:</label>
+      <select id="change-select">
+        <option value="none">-- choose one --</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+      </select>
+      <p>You picked: <span id="change-output">nothing yet</span></p>
+    </section>
+
+
+    <section>
+      <h2>4. submit</h2>
+      <p>
+        Fires when a form is submitted (clicking the submit button or pressing
+        Enter in a field). We listen on the <strong>form</strong>, not the button.
+      </p>
+
+      <form id="submit-form">
+        <label for="email">Email:</label>
+        <input id="email" type="email" required>
+        <button type="submit">Submit</button>
+      </form>
+      <p id="submit-output">The form has not been submitted yet.</p>
+    </section>
+  </main>
+</body>
+</html>

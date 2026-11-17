@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+section {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.loading {
+  color: #555;
+}
+
+.success {
+  color: #1d6b2f;
+}
+
+.empty {
+  color: #8a5a00;
+}
+
+.error {
+  color: #a32020;
+}

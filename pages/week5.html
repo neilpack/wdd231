@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 5: Rexburg Weather API | WDD 231</title>
+  <link rel="stylesheet" href="../styles/week5.css">
+  <script src="../scripts/week5.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <h1>WEATHER API TIME LETS GOO</h1>
+
+    <!-- ========== The weather display ========== -->
+    <section>
+      <h2>Current Weather</h2>
+
+      <p id="status" class="status">Weather has not been loaded yet.</p>
+
+      <ul id="weather" hidden>
+        <li>Temperature: <span id="temperature"></span></li>
+        <li>Feels like: <span id="feels-like"></span></li>
+        <li>Wind: <span id="wind"></span></li>
+      </ul>
+
+      <button id="load-button" type="button">Load weather</button>
+      <button id="empty-button" type="button">Test empty</button>
+      <button id="error-button" type="button">Test error</button>
+    </section>
+
+
+    <!-- ========== API key / requirements ========== -->
+    <section>
+      <h2>Secrets and API requirements</h2>
+      <ul>
+        <li>Open-Meteo does <strong>not</strong> need an API key, so there is no secret in this code.</li>
+        <li>Open-Meteo's terms ask for credit to be given (see the footer)</li>
+      </ul>
+    </section>
+
+
+    <!-- ========== Developer tools ========== -->
+    <!-- <section>
+      <h2>Inspecting the request in developer tools</h2>
+      <ol>
+        <li>Press <kbd>F12</kbd> and open the <strong>Network</strong> tab.</li>
+        <li>Click the <strong>Fetch/XHR</strong> filter.</li>
+        <li>Press <strong>Load weather</strong>. A <code>forecast?...</code> request appears.</li>
+        <li>Click it. <strong>Headers</strong> shows the URL and status code (200). <strong>Response</strong> shows the raw JSON.</li>
+        <li>Press <strong>Test error</strong> and see a status of 400 instead.</li>
+        <li>The <strong>Console</strong> tab also shows the status and data logged by <code>week5.js</code>.</li>
+      </ol>
+    </section>
+  </main> -->
+
+  <footer>
+    <p><a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a></p>
+  </footer>
+</body>
+</html>

@@ -44,7 +44,7 @@ Competency passed: [X]  Date: ______________  Instructor/TA: ___________________
 | --- | --- | --- | --- |
 | [X] | Use variables, functions, arrays, objects, conditionals, and loops to represent and process information. |  |  |
 | [X] | Select DOM elements and update content, attributes, classes, and generated markup. |  |  |
-| [ ] | Respond to click, input, submit, and change events as appropriate. |  |  |
+| [X] | Respond to click, input, submit, and change events as appropriate. |  |  |
 | [X] | Separate data, rendering, and event-handling responsibilities into understandable functions. |  |  |
 
 ## 4. Data-driven rendering and modules
@@ -53,10 +53,10 @@ Competency passed: [ ]  Date: ______________  Instructor/TA: ___________________
 
 | Peer reviewed | Slice | Peer name and date | Evidence note or link |
 | --- | --- | --- | --- |
-| [ ] | Represent repeated content as arrays or objects rather than duplicating markup. |  |  |
-| [ ] | Create reusable rendering functions or templates for repeated UI patterns. |  |  |
-| [ ] | Split code into modules with clear responsibilities and imports/exports. |  |  |
-| [ ] | Keep data, application logic, and presentation concerns reasonably separated. |  |  |
+| [X] | Represent repeated content as arrays or objects rather than duplicating markup. |  |  |
+| [X] | Create reusable rendering functions or templates for repeated UI patterns. |  |  |
+| [X] | Split code into modules with clear responsibilities and imports/exports. |  |  |
+| [X] | Keep data, application logic, and presentation concerns reasonably separated. |  |  |
 
 ## 5. APIs and asynchronous programming
 
@@ -64,11 +64,11 @@ Competency passed: [ ]  Date: ______________  Instructor/TA: ___________________
 
 | Peer reviewed | Slice | Peer name and date | Evidence note or link |
 | --- | --- | --- | --- |
-| [ ] | Make requests with `fetch` and use promises or `async`/`await` correctly. |  |  |
-| [ ] | Read the response status and convert response data from JSON. |  |  |
-| [ ] | Represent loading, success, empty, and error states in the interface. |  |  |
-| [ ] | Keep secrets out of source code and follow the API's documented requirements. |  |  |
-| [ ] | Inspect requests and responses with browser developer tools. |  |  |
+| [X] | Make requests with `fetch` and use promises or `async`/`await` correctly. |  |  |
+| [X] | Read the response status and convert response data from JSON. |  |  |
+| [X] | Represent loading, success, empty, and error states in the interface. |  |  |
+| [X] | Keep secrets out of source code and follow the API's documented requirements. |  |  |
+| [X] | Inspect requests and responses with browser developer tools. |  |  |
 
 ## 6. Application state, navigation, and interaction
 
